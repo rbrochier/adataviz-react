@@ -1,0 +1,44 @@
+export const formaterDonnees = (element) => ({
+  theme: element.thematique,
+  titre: element.titre_projet_gagnant,
+  arrondissement: element.arrondissement_projet_gagnant,
+  avancement: element.avancement_projet,
+  annee: element.edition,
+  budget: element.budget_global_projet_gagnant,
+  lien: element.lien_projet_gagnant,
+  id: element.identifiant_projet_gagnant,
+  
+});
+
+
+
+export const extraireThematiques = (projets) => {
+  const thematiques = [];
+  for (const projet of projets) {
+    const theme = projet.theme;
+    if (!thematiques.includes(theme)) {
+      thematiques.push(theme);
+    }
+  }
+  return thematiques;
+};
+
+/// function filtrerParCategorie(donnees, valeur)
+
+export const filtrerParThematique = (projets, valeur) => {
+  const filtreThemes = projets.filter((projet) => projet.theme === valeur);
+  return filtreThemes;
+};
+
+/// function filtrerParNom(donnees, recherche)
+
+export const filtrerParNom = (projets, recherche) => {
+  const filtreNom = projets.filter((projet) =>
+    projet.titre.toLowerCase().includes(recherche.toLowerCase()),
+  );
+  return filtreNom;
+};
+
+/// function trierParNom(donnees)
+
+export const trierParNom = (donnees) => {};

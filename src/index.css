@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 5px;
+  padding: 0;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  background-color: #f4f3f3;
+  font-size: 16px;
+  gap: 6px;
+  text-rendering: optimizeLegibility;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./assets/image_processing20230918-14795-hp29xz.jpg);
+  font-size: 1rem;
+  border: 1px solid;
+  font-weight: 400;
+  line-height: 1;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 200px;
+  margin: 5px 0;
+  border-radius: 8px;
+}
+
+h1 {
+  background-color: #3a59b7;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.5;
+  color: #eceefd;
+  padding: 8px;
+  margin: 4px;
+}
+h2 {
+  font-size: 1rem;
+  color: #3a59b7;
+}
+
+main {
+  width: 100%;
+  max-width: 1000px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+  background-color: #eceefd;
+}
+
+.recherche {
+  color: #071f32;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#form-recherche {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+/* Page principale - Menu thematique */
+
+.menu-themes {
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#liste-themes button {
+  font-family: inherit;
+  background-color: #eceefd;
+  color: #3a59b7;
+  border-radius: 8px;
+  margin: 5px 0;
+  border: 1px solid;
+  padding: 8px 16px;
+  width: 100%;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#bouton-navigation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Carte Projet */
+
+.cartes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 10px;
+}
+
+.cartes article {
+  padding: 16px;
+  background-color: #eceefd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.carte-projet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eceefd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+.carte-projet article {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f3f3;
+  padding: 16px;
+  gap: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-size: 0.8rem;
+}
+
+.carte-projet .url-projet {
+  align-self: center;
+  margin-top: 8px;
+  padding: 8px 16px;
+  background-color: #3a59b7;
+  color: #eceefd;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.url-projet {
+  text-decoration: none;
+}
+
+.carte-projet .url-projet:hover {
+  background-color: #2e3e9e;
+}
+
+.carte-projet .url-projet:focus-visible {
+  outline: 3px solid #3a59b7;
+  outline-offset: 2px;
+}
+
+#bouton-navigation button {
+  font-family: inherit;
+  background-color: #eceefd;
+  color: #3a59b7;
+  border-radius: 8px;
+  margin: 0;
+  border: 1px solid;
+  padding: 8px 16px;
+  flex: 1 1 calc(50% - 5px);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#liste-themes button:hover,
+#bouton-navigation button:hover {
+  background-color: #3a59b7;
+  color: #eceefd;
+}
+
+#liste-themes button:focus-visible,
+#bouton-navigation button:focus-visible {
+  outline: 3px solid #3a59b7;
+  outline-offset: 2px;
+}
+
+#bouton-navigation button:last-child {
+  flex: 1 1 100%;
+}
+
+footer {
+  margin-top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 768px;
+  z-index: 10;
+  padding: 1px 2px;
+  font-size: 0.6rem;
+  background-color: #3a59b7;
+  color: #eceefd;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+}
+
+footer a {
+  color: #ffffff;
+}
+
+/* classe caché*/
+
+.cache {
+  display: none;
+}
