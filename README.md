@@ -1,16 +1,24 @@
-# React + Vite
+PROJET ADATAVIZ EN REACT 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Il s'agit de la transposition du projet ADATAVIZ de la semaine 8, en version React JS.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Passage en React
 
-## React Compiler
+### 1. Création du projet
+- Création du projet avec Vite : `npm create vite@latest adataviz-react -- --template react`
+- Installation des dépendances : `npm install`
+- Lancement en local : `npm run dev` (http://localhost:5173)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+/// A compléter ///
+
+
+### 2. Les tests
+- Installation de Jest : `npm install -D jest`
+- Script de test adapté aux modules : `node --experimental-vm-modules node_modules/jest/bin/jest.js`
+- Tests des fonctions de `utils.js` dans `src/utils.test.js` (cas normal et cas vide)
+
+
+
