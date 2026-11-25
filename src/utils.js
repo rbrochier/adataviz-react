@@ -35,10 +35,8 @@ export const filtrerParThematique = (projets, valeur) => {
 /// function filtrerParNom(donnees, recherche)
 
 export const filtrerParNom = (projets, recherche) => {
-  const filtreNom = projets.filter((projet) =>
-    projet.titre.toLowerCase().includes(recherche.toLowerCase()),
-  );
-  return filtreNom;
+  const mot = recherche.trim().toLowerCase();
+  return projets.filter((projet) => projet.titre.toLowerCase().includes(mot));
 };
 
 /// function trierParNom(donnees)

@@ -30,8 +30,7 @@ export function Carte({
             <p className="avancement-projet">{avancement}</p>
             <p className="dates">{annee}</p>
             <p className="budget">{budget.toLocaleString("fr-FR")} €</p>
-            <button className="bouton-lien">
-              <a href={lien} className="url-projet" id="lien">Lien vers le Projet</a></button>
+            <a href={lien} className="url-projet" id="lien">Lien vers le Projet</a>
             </>
         )}
       </section>

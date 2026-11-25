@@ -50,6 +50,17 @@ h2 {
   color: #3a59b7;
 }
 
+h3 {
+  background-color: #3c5fc8;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.5;
+  color: #f5f6f9;
+  padding: 8px;
+  margin: 4px;
+}
+
 main {
   width: 100%;
   max-width: 1000px;
@@ -88,7 +99,11 @@ ul {
   padding: 0;
 }
 
-button{
+#liste-themes button{
+    width: 100%;
+  }
+
+button {
   font-family: inherit;
   font-size: 1rem;
   background-color: #eceefd;
@@ -97,18 +112,11 @@ button{
   border-radius: 8px;
   margin: 5px 0;
   padding: 8px 16px;
-  width: 100%;
   cursor: pointer;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
 }
-
-button:hover {
-  background-color: #3a59b7;
-  color: #eceefd;
-}
-
 
 #bouton-navigation {
   display: flex;
@@ -116,7 +124,6 @@ button:hover {
   flex-wrap: wrap;
   gap: 10px;
 }
-
 
 .bouton-detail {
   display: block;
@@ -130,7 +137,6 @@ button:hover {
   flex-direction: column;
   gap: 16px;
   margin: 10px;
-
 }
 
 .cartes article {
@@ -139,8 +145,6 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-
-
 
 .carte-projet {
   display: flex;
@@ -162,7 +166,7 @@ button:hover {
   font-size: 0.8rem;
 }
 
-.carte-projet .url-projet {
+.url-projet {
   align-self: center;
   margin-top: 8px;
   padding: 8px 16px;
@@ -186,27 +190,15 @@ button:hover {
 }
 
 #bouton-navigation button {
-  font-family: inherit;
-  background-color: #eceefd;
-  color: #3a59b7;
-  border-radius: 8px;
   margin: 0;
-  border: 1px solid;
-  padding: 8px 16px;
   flex: 1 1 calc(50% - 5px);
-  cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
 }
 
-button:hover,
- button:hover {
+button:hover {
   background-color: #3a59b7;
   color: #eceefd;
 }
 
-button:focus-visible,
 button:focus-visible {
   outline: 3px solid #3a59b7;
   outline-offset: 2px;
@@ -218,13 +210,9 @@ button:focus-visible {
 
 footer {
   margin-top: auto;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+  margin: auto auto 0;
   width: 100%;
   max-width: 768px;
-  z-index: 10;
   padding: 1px 2px;
   font-size: 0.6rem;
   background-color: #3a59b7;
