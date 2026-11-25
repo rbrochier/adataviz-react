@@ -1,5 +1,5 @@
   
-  function Entete () {
+  export function Entete () {
     return (
   <header>
         <h1>
@@ -13,4 +13,3 @@
   }
 
 
-  export default Entete;

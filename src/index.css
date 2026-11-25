@@ -88,13 +88,14 @@ ul {
   padding: 0;
 }
 
-#liste-themes button {
+button{
   font-family: inherit;
+  font-size: 1rem;
   background-color: #eceefd;
   color: #3a59b7;
+  border: 1px solid;
   border-radius: 8px;
   margin: 5px 0;
-  border: 1px solid;
   padding: 8px 16px;
   width: 100%;
   cursor: pointer;
@@ -103,11 +104,23 @@ ul {
     color 0.2s ease;
 }
 
+button:hover {
+  background-color: #3a59b7;
+  color: #eceefd;
+}
+
+
 #bouton-navigation {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+
+.bouton-detail {
+  display: block;
+  margin: 10px auto;
 }
 
 /* Carte Projet */
@@ -117,6 +130,7 @@ ul {
   flex-direction: column;
   gap: 16px;
   margin: 10px;
+
 }
 
 .cartes article {
@@ -125,6 +139,8 @@ ul {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
+
 
 .carte-projet {
   display: flex;
@@ -184,14 +200,14 @@ ul {
     color 0.2s ease;
 }
 
-#liste-themes button:hover,
-#bouton-navigation button:hover {
+button:hover,
+ button:hover {
   background-color: #3a59b7;
   color: #eceefd;
 }
 
-#liste-themes button:focus-visible,
-#bouton-navigation button:focus-visible {
+button:focus-visible,
+button:focus-visible {
   outline: 3px solid #3a59b7;
   outline-offset: 2px;
 }

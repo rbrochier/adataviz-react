@@ -1,5 +1,5 @@
-import Entete from "./components/Entete.jsx";
-import Carte from "./components/Carte.jsx";
+import  {Entete } from "./components/Entete.jsx";
+import { Carte } from "./components/Carte.jsx";
 import { donnees } from "./donnees.js";
 
 function App() {
@@ -29,17 +29,19 @@ function App() {
 
         <div className="cartes">
           {donnees.map((projet) => (
-            <Carte
-              key={projet.id}
-              titre={projet.titre}
-              arrondissement={projet.arrondissement}
-              avancement={projet.avancement}
-              annee={projet.annee}
-              budget={projet.budget}
-              lien={projet.lien}
-            />
+          <Carte
+                key={projet.id}
+                titre={projet.titre}
+                arrondissement={projet.arrondissement}
+                avancement={projet.avancement}
+                annee={projet.annee}
+                budget={projet.budget}
+                lien={projet.lien}
+                direction={projet.direction}
+          />
+
           ))}
-        </div>
+          </div>
       </main>
 
       <footer>Données : Open Data Paris</footer>

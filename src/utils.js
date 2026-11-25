@@ -7,6 +7,8 @@ export const formaterDonnees = (element) => ({
   budget: element.budget_global_projet_gagnant,
   lien: element.lien_projet_gagnant,
   id: element.identifiant_projet_gagnant,
+  direction: element.direction_pilote_projet
+
   
 });
 
