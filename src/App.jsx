@@ -1,21 +1,46 @@
 import { Entete } from "./components/Entete.jsx";
 import { Carte } from "./components/Carte.jsx";
 import { donnees } from "./donnees.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   filtrerParNom,
   extraireThematiques,
   filtrerParThematique,
+  formaterDonnees,
 } from "./utils.js";
 
 function App() {
+  const url =
+    "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/bp_projets_gagnants/records?limit=100";
+  const [donnees, setDonnees] = useState([]);
   const [saisie, setSaisie] = useState("");
   const [recherche, setRecherche] = useState("");
   const [themeChoisi, setThemeChoisi] = useState(null);
   const [index, setIndex] = useState(0);
-  themeChoisi === null ? donnees : filtrerParThematique(donnees, themeChoisi);
+  const parTheme =
+    themeChoisi === null ? donnees : filtrerParThematique(donnees, themeChoisi);
   const resultats = filtrerParNom(donnees, recherche);
   const thematiques = extraireThematiques(donnees);
+
+  useEffect(() => {
+    const charger = async () => {
+      try {
+        const reponse = await fetch(url);
+        if (!reponse.ok) {
+          throw new Error("Erreur HTTP" + reponse.status);
+        }
+        const json = await reponse.json();
+        setDonnees(json.results.map(formaterDonnees));
+      } catch (error) {
+        setErreurChargement(true);
+        console.log(error);
+        console.log("Il y a une erreur");
+      } finally {
+        setChargementEnCours(false);
+      }
+    };
+    charger();
+  }, []);
 
   const lancerRecherche = (event) => {
     event.preventDefault();
@@ -42,6 +67,7 @@ function App() {
   return (
     <>
       <Entete />
+
       <main>
         <section className="recherche">
           <form id="form-recherche" onSubmit={lancerRecherche}>

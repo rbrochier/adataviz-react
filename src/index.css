@@ -46,6 +46,7 @@ h1 {
   margin: 4px;
 }
 h2 {
+  text-align: center;
   font-size: 1rem;
   color: #3a59b7;
 }
@@ -89,7 +90,6 @@ section {
 /* Page principale - Menu thematique */
 
 .menu-themes {
-  align-items: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
 }
@@ -99,9 +99,18 @@ ul {
   padding: 0;
 }
 
-#liste-themes button{
-    width: 100%;
-  }
+#liste-themes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap : 18px;
+  width: 100%;
+}
+
+#liste-themes button {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
 
 button {
   font-family: inherit;
@@ -133,10 +142,11 @@ button {
 /* Carte Projet */
 
 .cartes {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap : 16px;
+  width: 100%;
+  margin: 10px 0;
 }
 
 .cartes article {
