@@ -20,7 +20,9 @@ function App() {
     themeChoisi === null ? donnees : filtrerParThematique(donnees, themeChoisi);
   const resultats = filtrerParNom(donnees, recherche);
   const thematiques = extraireThematiques(donnees);
-  const [titreCliquable, setTitreCliquable] = useState();
+  const [chargementEnCours, setChargementEnCours] = useState(true);
+  const [erreurChargement, setErreurChargement] = useState(false);
+  const projet = resultats[index];
 
   useEffect(() => {
     const charger = async () => {
@@ -67,85 +69,88 @@ function App() {
     setIndex(0);
   };
 
+  return (
+    <>
+      <Entete />
 
-return (
-  <>
-    <Entete />
-
-    <main>
-      <section className="recherche">
-        <form id="form-recherche" onSubmit={lancerRecherche}>
-          <label htmlFor="site-search">Rechercher un projet :</label>
-          <input
-            type="search"
-            id="site-search"
-            value={saisie}
-            onChange={(event) => setSaisie(event.target.value)}
-          />
-          <button type="submit">Rechercher</button>
-        </form>
-      </section>
-      {themeChoisi === null && (
-        <section className="menu-themes">
-          <h2>Thématiques</h2>
-          <ul id="liste-themes">
-            {thematiques.map((theme) => (
-              <li key={theme}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setThemeChoisi(theme);
-                    setIndex(0);
-                  }}
-                >
-                  {theme}
-                </button>
-              </li>
-            ))}
-          </ul>
+      <main>
+        <section className="recherche">
+          <form id="form-recherche" onSubmit={lancerRecherche}>
+            <label htmlFor="site-search">Rechercher un projet :</label>
+            <input
+              type="search"
+              id="site-search"
+              value={saisie}
+              onChange={(event) => setSaisie(event.target.value)}
+            />
+            <button type="submit">Rechercher</button>
+          </form>
         </section>
-      )}
-      {afficherCartes && (
-        <section className="cartes">
-          {resultats.length === 0 && (
-            <p>Aucun projet ne correspond à {recherche}</p>
-          )}
-          {resultats.map((projet) => (
-            <div key={projet.id}>
-              <Carte
-                titre={projet.titre}
-                arrondissement={projet.arrondissement}
-                avancement={projet.avancement}
-                annee={projet.annee}
-                budget={projet.budget}
-                lien={projet.lien}
-                direction={projet.direction}
-              />
-              <div className="navigation">
-                <button type="button" onClick={precedent}>
-                  Precedent
-                </button>
-                <button type="button" onClick={suivant}>
-                  Suivant
-                </button>
-                <button type="button" onClick={retourMenu}>
-                  Retour Menu Principal
-                </button>
-              </div>
+        {themeChoisi === null && (
+          <section className="menu-themes">
+            <h2>Thématiques</h2>
+            <ul id="liste-themes">
+              {thematiques.map((theme) => (
+                <li key={theme}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setThemeChoisi(theme);
+                      setIndex(0);
+                    }}
+                  >
+                    {theme}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+        {afficherCartes && (
+          <section className="cartes">
+            {resultats.length === 0 && (
+              <p>Aucun projet ne correspond à {recherche}</p>
+            )}
+            {projet && (
+              <>
+                <p id="compteur-projets">
+                  Projet {index + 1}/{resultats.length}
+                </p>
+                <Carte
+                  key={projet.id}
+                  titre={projet.titre}
+                  arrondissement={projet.arrondissement}
+                  avancement={projet.avancement}
+                  annee={projet.annee}
+                  budget={projet.budget}
+                  lien={projet.lien}
+                  direction={projet.direction}
+                />
+              </>
+            )}
+            <div id="bouton-navigation">
+              <button type="button" onClick={precedent}>
+                Precedent
+              </button>
+              <button type="button" onClick={suivant}>
+                Suivant
+              </button>
+              <button type="button" onClick={retourMenu}>
+                Retour Menu Principal
+              </button>
             </div>
-          ))}
-        </section>
-      )}
-    </main>
+          </section>
+        )}
+      </main>
 
-    <footer>
-      <p>
-        Données : <a href="https://opendata.paris.fr/">Open Data Paris</a> ·
-        Richard Brochier, Ada Tech School, 2026
-      </p>
-    </footer>
-  </>
-);
+      <footer>
+        <p>
+          Données : <a href="https://opendata.paris.fr/">Open Data Paris</a> ·
+          Richard Brochier, Ada Tech School, 2026
+        </p>
+      </footer>
+    </>
+  );
 }
 
 export default App;
