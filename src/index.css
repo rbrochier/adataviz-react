@@ -141,13 +141,6 @@ button {
 
 /* Carte Projet */
 
-.cartes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap : 16px;
-  width: 100%;
-  margin: 10px 0;
-}
 
 .cartes article {
   padding: 16px;
