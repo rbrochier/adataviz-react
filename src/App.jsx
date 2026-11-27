@@ -7,6 +7,7 @@ import {
   filtrerParThematique,
   formaterDonnees,
 } from "./utils.js";
+/* import { Entete } from "./components/Entete.jsx"; */
 
 function App() {
   const url =
@@ -18,7 +19,7 @@ function App() {
   const [index, setIndex] = useState(0);
   const parTheme =
     themeChoisi === null ? donnees : filtrerParThematique(donnees, themeChoisi);
-  const resultats = filtrerParNom(donnees, recherche);
+  const resultats = filtrerParNom(parTheme, recherche);
   const thematiques = extraireThematiques(donnees);
   const [chargementEnCours, setChargementEnCours] = useState(true);
   const [erreurChargement, setErreurChargement] = useState(false);
@@ -66,14 +67,26 @@ function App() {
 
   const retourMenu = () => {
     setThemeChoisi(null);
+    setRecherche("");
+    setSaisie("");
     setIndex(0);
   };
-
+  console.log(
+    "thème :",
+    themeChoisi,
+    "| parTheme :",
+    parTheme.length,
+    "| resultats :",
+    resultats.length,
+  );
   return (
     <>
       <Entete />
 
       <main>
+         <p id="compteur-projets">
+                  Projet {index + 1}/{resultats.length}
+                </p>
         <section className="recherche">
           <form id="form-recherche" onSubmit={lancerRecherche}>
             <label htmlFor="site-search">Rechercher un projet :</label>
@@ -86,6 +99,9 @@ function App() {
             <button type="submit">Rechercher</button>
           </form>
         </section>
+        {chargementEnCours && <p>Chargement des projets…</p>}
+        {erreurChargement && <p>Impossible de charger les projets.</p>}
+      
         {themeChoisi === null && (
           <section className="menu-themes">
             <h2>Thématiques</h2>
@@ -107,39 +123,46 @@ function App() {
           </section>
         )}
         {afficherCartes && (
-          <section className="cartes">
-            {resultats.length === 0 && (
-              <p>Aucun projet ne correspond à {recherche}</p>
-            )}
-            {projet && (
-              <>
-                <p id="compteur-projets">
-                  Projet {index + 1}/{resultats.length}
-                </p>
-                <Carte
-                  key={projet.id}
-                  titre={projet.titre}
-                  arrondissement={projet.arrondissement}
-                  avancement={projet.avancement}
-                  annee={projet.annee}
-                  budget={projet.budget}
-                  lien={projet.lien}
-                  direction={projet.direction}
-                />
-              </>
-            )}
-            <div id="bouton-navigation">
-              <button type="button" onClick={precedent}>
-                Precedent
-              </button>
-              <button type="button" onClick={suivant}>
-                Suivant
-              </button>
-              <button type="button" onClick={retourMenu}>
-                Retour Menu Principal
-              </button>
-            </div>
-          </section>
+          <section className="carte-projet">
+  <button type="button" className="lien-retour" onClick={retourMenu}>
+    ← Thématiques
+  </button>
+
+  {themeChoisi !== null && <h2>{themeChoisi}</h2>}
+
+  {resultats.length === 0 && (
+    <p>Aucun projet ne correspond à « {recherche} ».</p>
+  )}
+
+  {projet && (
+    <>
+
+      <Carte
+        key={projet.id}
+        titre={projet.titre}
+        arrondissement={projet.arrondissement}
+        avancement={projet.avancement}
+        annee={projet.annee}
+        budget={projet.budget}
+        lien={projet.lien}
+        direction={projet.direction}
+      />
+
+      <div id="bouton-navigation">
+        <button type="button" onClick={precedent} disabled={index === 0}>
+          ← Précédent
+        </button>
+        <button
+          type="button"
+          onClick={suivant}
+          disabled={index >= themeChoisi.length - 1}
+        >
+          Suivant →
+        </button>
+      </div>
+    </>
+  )}
+</section>
         )}
       </main>
 

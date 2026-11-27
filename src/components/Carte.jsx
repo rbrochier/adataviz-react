@@ -14,7 +14,7 @@ export function Carte({
   return (
     <article className="projet">
       <h3 className="nom-projet">{titre}</h3>
-      <section className="carte">
+      <div className="carte">
         <button
           className="bouton-detail"
           type="button"
@@ -30,10 +30,10 @@ export function Carte({
             <p className="avancement-projet">{avancement}</p>
             <p className="dates">{annee}</p>
             <p className="budget">{budget.toLocaleString("fr-FR")} €</p>
-            <a href={lien} className="url-projet" id="lien">Lien vers le Projet</a>
+            <a href={lien} target="_blank"  className="url-projet" id="lien">Lien vers le Projet</a>
             </>
         )}
-      </section>
+      </div>
     </article>
   );
 }

@@ -2,6 +2,15 @@
   box-sizing: border-box;
 }
 
+#root {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -75,6 +84,15 @@ section {
   margin: 10px;
   background-color: #eceefd;
 }
+
+#compteur-projets {
+  text-align: center;
+  margin: 0;
+  border: none;
+  color: #161d19;
+  font-size: 0.9rem;
+}
+
 
 .recherche {
   color: #071f32;
@@ -152,25 +170,33 @@ button {
 .carte-projet {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: #eceefd;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
-}
-.carte-projet article {
-  display: flex;
-  flex-direction: column;
-  background-color: #f4f3f3;
-  padding: 16px;
-  gap: 8px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  font-size: 0.8rem;
+  gap: 12px;
 }
 
+.carte-projet article {
+  width: 100%;
+  max-width: 500px;
+  min-height: 140px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.carte-projet h3 {
+  background: none;
+  color: #3a59b7;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 0;
+  margin: 0 0 12px;
+}
+
+
+
 .url-projet {
-  align-self: center;
+  text-decoration: none;
   margin-top: 8px;
   padding: 8px 16px;
   background-color: #3a59b7;
@@ -179,9 +205,7 @@ button {
   transition: background-color 0.2s ease;
 }
 
-.url-projet {
-  text-decoration: none;
-}
+
 
 .carte-projet .url-projet:hover {
   background-color: #2e3e9e;
@@ -192,9 +216,36 @@ button {
   outline-offset: 2px;
 }
 
-#bouton-navigation button {
+.lien-retour {
+  align-self: flex-start;
+  width: auto;
+  border: none;
+  background: none;
+  padding: 4px 0;
   margin: 0;
-  flex: 1 1 calc(50% - 5px);
+  text-decoration: underline;
+}
+
+.lien-retour:hover {
+  background: none;
+  color: #2e3e9e;
+}
+
+#bouton-navigation {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+#bouton-navigation button {
+  flex: 1;
+  margin: 0;
+}
+
+#bouton-navigation button:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 button:hover {
